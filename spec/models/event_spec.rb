@@ -12,6 +12,7 @@ end
 =end
 
 describe Event do
+
   describe '#name' do
 
     context 'nilのとき' do
@@ -60,4 +61,20 @@ describe Event do
     end
 
   end
+
+  describe '#created_by?' do
+    let(:event) { create(:event) }
+    subject { event.created_by?(user) }
+
+    context '引数がnilなとき' do
+      let(:user) { nil }
+      it { should be_falsey }
+    end
+
+    context '#owner_idと引数の#idが同じとき' do
+      let(:user) { double('user', id: event.id) }
+      it { should be_truthy }
+    end
+  end
+
 end
