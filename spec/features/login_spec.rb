@@ -1,4 +1,4 @@
-require 'spec/helper'
+require 'spec_helper'
 
 describe 'ユーザがイベントのさんｓかや登録を行うために、ログインをする' do
   context 'トップページに遷移し、"Twitterでログイン"をクリックしたとき' do
